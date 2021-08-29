@@ -1,0 +1,155 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: montserrat, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #CEE5D0;
+}
+
+.envelope {
+  position: relative;
+  margin: 100px auto 0;
+  width: 400px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.envelope__inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.envelope__inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+
+.envelope__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+}
+
+.envelope__face--front {
+  background-color: #F2BB7B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pp {
+  display: block;
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+}
+
+.envelope__face--front h2 {
+  color: #fff;
+  font-size: 32px;
+}
+
+.envelope__face--back {
+  background-color: #fff;
+  transform: rotateY(180deg);
+}
+
+/*For back envelop*/
+.envelope__content
+{
+  content: '';
+  width: 400px;
+  height: 300px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 0px 0px 20px 20px;
+  transform-style: preserve-3d;
+  perspective: 700px;
+  cursor: pointer;
+}
+
+.envelope__content:before
+{
+  content: '';
+  position: absolute;
+  border-left: 200px solid transparent;
+  border-right: 200px solid #F7D59C;
+  border-top: 150px solid transparent;
+  border-bottom: 150px solid #F7D59C;
+  border-radius: 0px 0px 20px 20px;
+  z-index: 5;
+}
+
+.envelope__content:after
+{
+  content: '';
+  position: absolute;
+  border-left: 200px solid #F2BB7B;
+  border-right: 200px solid transparent;
+  border-top: 150px solid transparent;
+  border-bottom: 150px solid #F2BB7B;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.envelope__content .cover
+{
+  position: absolute;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-top: 150px solid #F2BB7B;
+  border-bottom: 150px solid transparent;
+  transform-origin: top;
+  transition:1s 2s ease;
+  z-index: 4;
+}
+
+.envelope__content:hover .cover
+{
+  transform: rotateX(180deg);
+  transition: 1s ease;
+}
+
+.envelope__content .image
+{
+  position: absolute;
+  width:380px;
+  left: 10px;
+  height: 290px;
+  top: 10px;
+  background-color: #93B5C6;
+  border-radius: 0px 0px 20px 20px;
+  background-size: cover;
+  background-position: center center;
+  transition: 1s ease;
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+}
+
+.image h1{
+  text-align: center;
+  margin-top: 100px;
+}
+.envelope__content:hover .image
+{
+  top: -400px;
+  transition: 1s 1s ease;
+}
+
+.envelope.is-rotate{
+  transform: rotate(45deg);
+}
